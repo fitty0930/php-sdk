@@ -1,6 +1,6 @@
-![No longer maintained](https://img.shields.io/badge/Maintenance-OFF-red.svg)
+![No longer maintained](https://img.shields.io/badge/Maintenance-ON-green.svg)
 
-### [DEPRECATED] This repository is no longer maintained
+### This repository is maintained
 
 > From the first week of April 2021 we will stop maintaining our SDKs.
 >
