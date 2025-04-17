@@ -26,6 +26,10 @@
  * Do not edit the class manually.
  */
 
+/**
+ * comentario de prueba
+ */
+
 namespace Meli\Api;
 
 use GuzzleHttp\Client;
