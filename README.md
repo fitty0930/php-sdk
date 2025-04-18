@@ -2,11 +2,11 @@
 
 ### This repository is maintained
 
-> From the first week of April 2021 we will stop maintaining our SDKs.
+> From the first week of April 2021 MercadoLibre developers will stop maintaining this SDKs.
 >
-> This project is not functional, the dependencies will not be updated to latest ones.
+> This project modified to be functional according to our needs in WebExport.
 >
-> We recommend you read our [documentation](https://developers.mercadolibre.com).
+> [Documentation](https://developers.mercadolibre.com).
 
   <a href="https://developers.mercadolibre.com">
     <img src="https://user-images.githubusercontent.com/1153516/73021269-043c2d80-3e06-11ea-8d0e-6e91441c2900.png" alt="Mercado Libre Developers" width="200"></a>
