@@ -4,7 +4,7 @@
 
 > From the first week of April 2021 MercadoLibre developers will stop maintaining this SDKs.
 >
-> This project modified to be functional according to our needs in WebExport.
+> This project will be modified to be functional according to our needs in WebExport.
 >
 > [Documentation](https://developers.mercadolibre.com).
 
