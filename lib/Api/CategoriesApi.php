@@ -126,9 +126,9 @@ class CategoriesApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function categoriesCategoryIdGet($category_id)
+    public function categoriesCategoryIdGet($category_id, $access_token)
     {
-        list($response) = $this->categoriesCategoryIdGetWithHttpInfo($category_id);
+        list($response) = $this->categoriesCategoryIdGetWithHttpInfo($category_id, $access_token);
         return $response;
     }
 
@@ -143,9 +143,9 @@ class CategoriesApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function categoriesCategoryIdGetWithHttpInfo($category_id)
+    public function categoriesCategoryIdGetWithHttpInfo($category_id, $access_token)
     {
-        $request = $this->categoriesCategoryIdGetRequest($category_id);
+        $request = $this->categoriesCategoryIdGetRequest($category_id, $access_token);
 
         try {
             $options = $this->createHttpClientOption();
@@ -297,7 +297,7 @@ class CategoriesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function categoriesCategoryIdGetRequest($category_id)
+    protected function categoriesCategoryIdGetRequest($category_id, $access_token)
     {
         // verify the required parameter 'category_id' is set
         if ($category_id === null || (is_array($category_id) && count($category_id) === 0)) {
@@ -329,12 +329,14 @@ class CategoriesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                ['application/json'],
+                $access_token
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                [],
+                $access_token
             );
         }
 
