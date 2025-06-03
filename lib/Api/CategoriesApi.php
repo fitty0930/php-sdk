@@ -676,9 +676,9 @@ class CategoriesApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function sitesSiteIdDomainDiscoverySearchGet($site_id, $q, $limit)
+    public function sitesSiteIdDomainDiscoverySearchGet($site_id, $q, $limit, $access_token)
     {
-        list($response) = $this->sitesSiteIdDomainDiscoverySearchGetWithHttpInfo($site_id, $q, $limit);
+        list($response) = $this->sitesSiteIdDomainDiscoverySearchGetWithHttpInfo($site_id, $q, $limit, $access_token);
         return $response;
     }
 
@@ -695,9 +695,9 @@ class CategoriesApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function sitesSiteIdDomainDiscoverySearchGetWithHttpInfo($site_id, $q, $limit)
+    public function sitesSiteIdDomainDiscoverySearchGetWithHttpInfo($site_id, $q, $limit, $access_token)
     {
-        $request = $this->sitesSiteIdDomainDiscoverySearchGetRequest($site_id, $q, $limit);
+        $request = $this->sitesSiteIdDomainDiscoverySearchGetRequest($site_id, $q, $limit, $access_token);
 
         try {
             $options = $this->createHttpClientOption();
@@ -784,9 +784,9 @@ class CategoriesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sitesSiteIdDomainDiscoverySearchGetAsync($site_id, $q, $limit)
+    public function sitesSiteIdDomainDiscoverySearchGetAsync($site_id, $q, $limit, $access_token)
     {
-        return $this->sitesSiteIdDomainDiscoverySearchGetAsyncWithHttpInfo($site_id, $q, $limit)
+        return $this->sitesSiteIdDomainDiscoverySearchGetAsyncWithHttpInfo($site_id, $q, $limit, $access_token)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -806,10 +806,10 @@ class CategoriesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function sitesSiteIdDomainDiscoverySearchGetAsyncWithHttpInfo($site_id, $q, $limit)
+    public function sitesSiteIdDomainDiscoverySearchGetAsyncWithHttpInfo($site_id, $q, $limit, $access_token)
     {
         $returnType = 'object';
-        $request = $this->sitesSiteIdDomainDiscoverySearchGetRequest($site_id, $q, $limit);
+        $request = $this->sitesSiteIdDomainDiscoverySearchGetRequest($site_id, $q, $limit, $access_token);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -855,7 +855,7 @@ class CategoriesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function sitesSiteIdDomainDiscoverySearchGetRequest($site_id, $q, $limit)
+    protected function sitesSiteIdDomainDiscoverySearchGetRequest($site_id, $q, $limit, $access_token)
     {
         // verify the required parameter 'site_id' is set
         if ($site_id === null || (is_array($site_id) && count($site_id) === 0)) {
@@ -921,12 +921,14 @@ class CategoriesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                ['application/json'],
+                $access_token
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                [],
+                $access_token
             );
         }
 
